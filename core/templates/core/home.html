@@ -1,0 +1,184 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}Home | Maggocare{% endblock %}
+
+{% block content %}
+<style>
+    /* Hero Section with Responsive Adjustments */
+    .hero-bg {
+        position: relative;
+        background: url("{% static 'images/dress.png' %}") no-repeat center center;
+        background-size: cover;
+        border-radius: 20px; /* Reduced for mobile */
+        overflow: hidden;
+        margin-bottom: 2rem;
+    }
+
+    .hero-overlay {
+        background: linear-gradient(135deg, rgba(240, 253, 244, 0.9), rgba(236, 253, 245, 0.8));
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        /* Responsive padding: smaller on mobile, larger on desktop */
+        padding: 40px 20px;
+    }
+    
+    @media (min-width: 992px) {
+        .hero-overlay { padding: 80px 40px; }
+        .hero-bg { border-radius: 30px; margin-bottom: 3rem; }
+    }
+
+    .glass-card {
+        background: rgba(255,255,255,0.65);
+        backdrop-filter: blur(14px);
+        border-radius: 24px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        transition: 0.3s ease;
+        height: 100%;
+    }
+
+    /* Fixed mobile hover issues (prevents sticky hover states) */
+    @media (hover: hover) {
+        .glass-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+        }
+    }
+
+    .impact-section {
+        background: linear-gradient(135deg, #065f46, #16a34a);
+        border-radius: 20px;
+    }
+
+    @media (min-width: 768px) {
+        .impact-section { border-radius: 30px; }
+    }
+
+    .rounded-xl { border-radius: 20px; }
+    @media (min-width: 768px) { .rounded-xl { border-radius: 30px; } }
+</style>
+
+<section class="hero-bg mx-2 mx-md-0">
+    <div class="hero-overlay">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-7 text-center text-lg-start">
+                    <span class="badge rounded-pill bg-success bg-opacity-10 text-success fw-semibold px-4 py-2 mb-3">
+                        Advanced Biotherapy Platform
+                    </span>
+
+                    <h1 class="display-5 display-md-4 fw-bold mt-3">
+                        Maggocare<br>
+                        <span class="text-success">Sterile Maggot Therapy</span>
+                    </h1>
+
+                    <p class="lead text-muted mt-3 mx-auto mx-lg-0" style="max-width:550px;">
+                        Maggocare delivers laboratory sterile medical larvae for 
+                        advanced wound debridement combining clinical science and safety.
+                    </p>
+
+                    <div class="d-grid d-sm-flex justify-content-center justify-content-lg-start gap-3 mt-4">
+                        <a href="{% url 'order_start' %}" class="btn btn-success btn-lg rounded-pill px-5 shadow">Place Order</a>
+                        <a href="{% url 'education' %}" class="btn btn-outline-success btn-lg rounded-pill px-5">Learn More</a>
+                    </div>
+
+                    <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-2 gap-md-4 mt-5 text-muted small">
+                        <span class="fw-bold text-dark">Regulated Supply</span>
+                        <span class="d-none d-md-inline">•</span>
+                        <span class="fw-bold text-dark">Medical-Grade Sterility</span>
+                        <span class="d-none d-md-inline">•</span>
+                        <span class="fw-bold text-dark">Institutional Ready</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="impact-section py-5 px-3 mb-5 text-white text-center">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-6 col-md-4">
+                <h2 class="fw-bold display-6 mb-0">100%</h2>
+                <p class="small mb-0">Sterile Prepared</p>
+            </div>
+            <div class="col-6 col-md-4">
+                <h2 class="fw-bold display-6 mb-0">24–48h</h2>
+                <p class="small mb-0">Rapid Response</p>
+            </div>
+            <div class="col-12 col-md-4">
+                <h2 class="fw-bold display-6 mb-0">Proven</h2>
+                <p class="small mb-0">Evidence-Based</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container mb-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Why Maggocare?</h2>
+        <p class="text-muted">Clinical science meets intelligent logistics</p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="glass-card p-4 text-center">
+                <img src="{% static 'images/lab.png' %}" class="img-fluid rounded-4 mb-3" alt="Lab" style="max-height: 200px; width: 100%; object-fit: cover;">
+                <h5 class="fw-bold">Laboratory Production</h5>
+                <p class="text-muted small">All larvae are cultivated under sterile, regulated conditions.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="glass-card p-4 text-center">
+                <img src="{% static 'images/doc.png' %}" class="img-fluid rounded-4 mb-3" alt="Clinicians" style="max-height: 200px; width: 100%; object-fit: cover;">
+                <h5 class="fw-bold">Designed for Clinicians</h5>
+                <p class="text-muted small">Streamlined ordering built for hospitals and wound specialists.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="glass-card p-4 text-center">
+                <img src="{% static 'images/move.png' %}" class="img-fluid rounded-4 mb-3" alt="Delivery" style="max-height: 200px; width: 100%; object-fit: cover;">
+                <h5 class="fw-bold">Reliable Delivery</h5>
+                <p class="text-muted small">Optimized logistics ensure rapid response for routine care.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 px-3 mb-5 rounded-xl mx-2 mx-md-0" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);">
+    <div class="container text-center">
+        <h2 class="fw-bold mb-5">Who We Serve</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <img src="{% static 'images/hospital.png' %}" class="img-fluid rounded-4 mb-3" alt="Hospital" style="width: 80px;">
+                <h5 class="fw-bold">Hospitals & Clinics</h5>
+                <p class="text-muted small">Advanced debridement for inpatient and outpatient care.</p>
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'images/prof.png' %}" class="img-fluid rounded-4 mb-3" alt="Pro" style="width: 80px;">
+                <h5 class="fw-bold">Professionals</h5>
+                <p class="text-muted small">Support for nurses, surgeons, and wound specialists.</p>
+            </div>
+            <div class="col-md-4">
+                <img src="{% static 'images/search.png' %}" class="img-fluid rounded-4 mb-3" alt="Research" style="width: 80px;">
+                <h5 class="fw-bold">Research</h5>
+                <p class="text-muted small">Clinical research applications within institutions.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container text-center py-5 mb-5">
+    <div class="cta-section p-4 p-md-5">
+        <h2 class="fw-bold">
+            Transform Clinical Wound Care<br class="d-none d-md-block">
+            <span class="text-success">With Precision Biotherapy</span>
+        </h2>
+        <p class="lead text-muted mt-3">Trusted by professionals. Powered by science.</p>
+        <div class="d-grid d-sm-block">
+            <a href="{% url 'order_start' %}" class="btn btn-success btn-lg rounded-pill px-5 mt-4 shadow">Start an Order</a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

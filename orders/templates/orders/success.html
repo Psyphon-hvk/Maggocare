@@ -1,0 +1,34 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+
+<div class="container text-center py-5">
+
+  <h2 class="text-success fw-bold mb-3">Order Submitted Successfully</h2>
+
+  <p class="text-muted mb-4" style="font-size: 1rem;">
+    Your Maggocare sterile maggot therapy order has been received.<br>
+    Our logistics team will contact your facility shortly.
+  </p>
+
+  <a href="/" class="btn btn-success rounded-pill px-5 py-2 w-100 w-sm-auto">
+    Return Home
+  </a>
+
+</div>
+
+<style>
+  @media (max-width: 576px) {
+    h2 {
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 0.95rem;
+    }
+    .btn {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+{% endblock %}

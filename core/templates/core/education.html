@@ -1,0 +1,272 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}Education | Maggocare{% endblock %}
+
+{% block content %}
+
+<style>
+    /* Responsive Hero */
+    .edu-hero {
+        background: linear-gradient(135deg, #ecfeff, #f0fdf4);
+        border-radius: 20px;
+        padding: 40px 20px; /* Mobile padding */
+        position: relative;
+        overflow: hidden;
+    }
+
+    @media (min-width: 992px) {
+        .edu-hero {
+            border-radius: 30px;
+            padding: 80px 60px;
+        }
+    }
+
+    /* Process Section Spacing */
+    .process-section {
+        background: #f8fafc;
+        border-radius: 20px;
+        padding: 40px 20px;
+    }
+
+    @media (min-width: 768px) {
+        .process-section {
+            border-radius: 30px;
+            padding: 70px 40px;
+        }
+    }
+
+    /* Cards */
+    .process-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        transition: .3s;
+        height: 100%;
+    }
+
+    @media (hover: hover) {
+        .process-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+        }
+    }
+
+    .process-card img {
+        width: 100%;
+        height: 200px; /* Slightly shorter for mobile */
+        object-fit: cover;
+    }
+
+    @media (min-width: 768px) {
+        .process-card img { height: 230px; }
+    }
+
+    .process-content { padding: 20px; }
+
+    .step {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #0f766e, #22c55e);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .edu-card {
+        background: white;
+        border-radius: 20px;
+        padding: 25px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    }
+
+    @media (min-width: 768px) {
+        .edu-card { padding: 35px; }
+    }
+
+    /* Hero Image Responsiveness */
+    .hero-image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    @media (min-width: 992px) {
+        .hero-image { height: 380px; border-radius: 25px; }
+    }
+
+    .hero-image-wrapper::after {
+        content: "";
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        background: rgba(34, 197, 94, 0.1);
+        z-index: -1;
+    }
+</style>
+
+<section class="edu-hero mb-5 mx-2 mx-md-0">
+    <div class="container">
+        <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-6 text-center text-lg-start">
+                <h1 class="fw-bold display-5">
+                    Medical Maggot Therapy
+                    <span class="text-success d-block">Clinical Education</span>
+                </h1>
+                <p class="lead text-muted mt-4">
+                    Understanding the full lifecycle of medical maggot therapy 
+                    from laboratory cultivation to clinical application.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image-wrapper">
+                    <img src="{% static 'images/0.jpeg' %}" class="hero-image" alt="Clinical Education">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container mb-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">What is Medical Maggot Therapy?</h2>
+        <p class="text-muted">Also called Larval Debridement Therapy (LDT)</p>
+    </div>
+    
+        <p class="mb-0">
+            Medical maggot therapy uses sterile fly larvae to remove dead
+            tissue from chronic wounds. The larvae selectively digest
+            necrotic tissue while preserving healthy tissue.
+        </p>
+    
+</section>
+
+
+
+<section class="process-section mb-5 mx-2 mx-md-0">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">From Laboratory to Patient</h2>
+            <p class="text-muted">The Clinical Lifecycle of Medical Maggot Therapy</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-sm-6 col-lg-4">
+                <div class="process-card">
+                    <img src="{% static 'images/1.jpeg' %}" alt="Step 1">
+                    <div class="process-content">
+                        <div class="step">1</div>
+                        <h5 class="fw-bold">Laboratory Cultivation</h5>
+                        <p class="text-muted small">Specialized flies are bred under controlled conditions to produce medical-grade larvae.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="process-card">
+                    <img src="{% static 'images/2.jpeg' %}" alt="Step 2">
+                    <div class="process-content">
+                        <div class="step">2</div>
+                        <h5 class="fw-bold">Sterilization Process</h5>
+                        <p class="text-muted small">Eggs undergo strict sterilization to ensure they are free of bacteria and safe for use.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="process-card">
+                    <img src="{% static 'images/3.jpeg' %}" alt="Step 3">
+                    <div class="process-content">
+                        <div class="step">3</div>
+                        <h5 class="fw-bold">Medical Packaging</h5>
+                        <p class="text-muted small">Sterile larvae are packaged in containers designed to preserve viability during transit.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="process-card">
+                    <img src="{% static 'images/4.jpeg' %}" alt="Step 4">
+                    <div class="process-content">
+                        <div class="step">4</div>
+                        <h5 class="fw-bold">Cold Storage</h5>
+                        <p class="text-muted small">Larvae are stored in temperature-controlled environments to maintain viability.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="process-card">
+                    <img src="{% static 'images/5.jpeg' %}" alt="Step 5">
+                    <div class="process-content">
+                        <div class="step">5</div>
+                        <h5 class="fw-bold">Clinical Acquisition</h5>
+                        <p class="text-muted small">Healthcare institutions obtain sterile larvae through regulated supply chains.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="process-card">
+                    <img src="{% static 'images/6.png' %}" alt="Step 6">
+                    <div class="process-content">
+                        <div class="step">6</div>
+                        <h5 class="fw-bold">Patient Wound Therapy</h5>
+                        <p class="text-muted small">Larvae remove dead tissue, disinfect the wound, and stimulate natural healing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container mb-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">Clinical Benefits</h2>
+    </div>
+    <div class="edu-card">
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="text-muted">
+                    <li class="mb-2">Selective removal of necrotic tissue</li>
+                    <li class="mb-2">Effective against antibiotic-resistant bacteria</li>
+                    <li class="mb-2">Reduced need for surgical debridement</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul class="text-muted">
+                    <li class="mb-2">Faster wound healing</li>
+                    <li class="mb-2">Cost-effective treatment</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container text-center py-5 mb-5 rounded-4 mx-auto"
+    style="background:linear-gradient(135deg,#f0fdf4,#dcfce7); max-width: 95%;">
+    <h2 class="fw-bold px-3">Learn More About Maggot Therapy</h2>
+    <p class="lead text-muted mt-3 px-3">
+        Access clinical guides, training resources, and institutional partnerships.
+    </p>
+    <div class="d-grid d-sm-inline-block px-4">
+    <a href="https://wa.me/254793935665?text=Hello%20I'd%20like%20to%20request%20materials"
+       class="btn btn-success btn-lg rounded-pill px-5 mt-3"
+       target="_blank">
+        Request Materials
+    </a>
+</div>
+</section>
+
+{% endblock %}

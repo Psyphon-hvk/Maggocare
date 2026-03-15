@@ -1,0 +1,124 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block title %}Place Order | Maggocare{% endblock %}
+
+{% block content %}
+
+<section class="container py-5">
+
+<h2 class="fw-bold mb-4 text-center">Medical Maggot Therapy Order</h2>
+
+<form method="POST">
+{% csrf_token %}
+
+<div class="row g-3"> <!-- Slightly smaller gutter for mobile -->
+
+  <div class="col-12 col-md-6">
+    <label class="form-label">Facility</label>
+    <select class="form-select" name="facility" required>
+      <option value="">Select Facility</option>
+      {% for facility in facilities %}
+        <option value="{{facility.id}}">{{facility.name}}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="col-12 col-md-6">
+    <label class="form-label">Responsible Healthcare Provider</label>
+    <select class="form-select" name="provider" required>
+      <option value="">Select Provider</option>
+      {% for p in providers %}
+        <option value="{{p.id}}">{{p.name}} — {{p.get_role_display}}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="col-12 col-md-4">
+    <label class="form-label">Wound Type</label>
+    <select class="form-select" name="wound_type">
+      <option>Diabetic Ulcer</option>
+      <option>Pressure Ulcer</option>
+      <option>Burn Wound</option>
+      <option>Necrotic Tissue</option>
+      <option>Post Surgical</option>
+    </select>
+  </div>
+
+  <div class="col-12 col-md-4">
+    <label class="form-label">Estimated Wound Size</label>
+    <input type="text" class="form-control" name="wound_size">
+  </div>
+
+  <div class="col-12 col-md-4">
+    <label class="form-label">Urgency</label>
+    <select class="form-select" name="urgency">
+      <option>Routine</option>
+      <option>Urgent (24 hrs)</option>
+      <option>Emergency</option>
+    </select>
+  </div>
+
+  <div class="col-12 col-md-4">
+    <label class="form-label">Larvae Units</label>
+    <input type="number" class="form-control" name="larvae_units">
+  </div>
+
+  <div class="col-12 col-md-4">
+    <label class="form-label">Application Type</label>
+    <select class="form-select" name="application_type">
+      <option>Free Range</option>
+      <option>Biobag</option>
+    </select>
+  </div>
+
+  <div class="col-12 col-md-4">
+    <label class="form-label">Preferred Delivery Date</label>
+    <input type="date" class="form-control" name="delivery_date">
+  </div>
+
+  <div class="col-12">
+    <label class="form-label">Clinical Notes</label>
+    <textarea class="form-control" rows="4" name="notes"></textarea>
+  </div>
+
+  <div class="col-12 col-md-4">
+    <label class="form-label">Contact Name</label>
+    <input type="text" class="form-control" name="contact_name">
+  </div>
+
+  <div class="col-12 col-md-4">
+    <label class="form-label">Phone</label>
+    <input type="text" class="form-control" name="phone">
+  </div>
+
+  <div class="col-12 col-md-4">
+    <label class="form-label">Email</label>
+    <input type="email" class="form-control" name="email">
+  </div>
+
+  <div class="col-12 text-center mt-4">
+    <button class="btn btn-success btn-lg rounded-pill px-5 w-100 w-md-auto">
+      Submit Order
+    </button>
+  </div>
+
+</div>
+
+</form>
+
+</section>
+
+<style>
+  /* Optional: make text and inputs slightly bigger on small screens */
+  @media (max-width: 576px) {
+    .form-label {
+      font-size: 0.95rem;
+    }
+    .form-control, .form-select, textarea {
+      font-size: 0.95rem;
+    }
+  }
+</style>
+
+{% endblock %}

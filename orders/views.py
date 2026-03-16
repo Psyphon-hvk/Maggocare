@@ -12,16 +12,25 @@ def order_start(request):
         facility = request.POST.get("facility")
         provider = request.POST.get("provider")
 
+        wound_photo = request.FILES.get("wound_photo")
+
         MaggotOrder.objects.create(
             facility_id=facility,
             provider_id=provider,
+
             wound_type=request.POST.get("wound_type"),
             wound_size=request.POST.get("wound_size"),
             urgency=request.POST.get("urgency"),
-            larvae_units=request.POST.get("larvae_units"),
+
+            larvae_units=int(request.POST.get("larvae_units")),
+
             application_type=request.POST.get("application_type"),
             delivery_date=request.POST.get("delivery_date"),
+
             notes=request.POST.get("notes"),
+
+            wound_photo=wound_photo,
+
             contact_name=request.POST.get("contact_name"),
             phone=request.POST.get("phone"),
             email=request.POST.get("email"),

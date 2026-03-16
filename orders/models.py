@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Facility(models.Model):
+
     FACILITY_TYPE = [
         ('hospital','Hospital'),
         ('clinic','Wound Care Clinic'),
@@ -36,6 +37,14 @@ class HealthcareProvider(models.Model):
 
 class MaggotOrder(models.Model):
 
+    STATUS_CHOICES = [
+        ('pending', 'Pending'),
+        ('approved', 'Approved'),
+        ('preparing', 'Preparing'),
+        ('shipped', 'Shipped'),
+        ('delivered', 'Delivered'),
+    ]
+
     facility = models.ForeignKey(Facility, on_delete=models.CASCADE)
     provider = models.ForeignKey(HealthcareProvider, on_delete=models.CASCADE)
 
@@ -51,9 +60,14 @@ class MaggotOrder(models.Model):
 
     notes = models.TextField(blank=True)
 
+    # Optional wound photo (stored in Cloudinary)
+    wound_photo = models.ImageField(upload_to="wound_images/", blank=True, null=True)
+
     contact_name = models.CharField(max_length=200)
     phone = models.CharField(max_length=20)
     email = models.EmailField()
+
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pending')
 
     created = models.DateTimeField(auto_now_add=True)
 

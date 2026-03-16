@@ -3,6 +3,10 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # homepage and main pages
     path('', include('core.urls')),
-    path('', include('orders.urls')),
+
+    # order system
+    path('orders/', include('orders.urls')),
 ]
